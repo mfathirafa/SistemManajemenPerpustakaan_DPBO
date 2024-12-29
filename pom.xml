@@ -10,4 +10,5 @@
         <maven.compiler.release>23</maven.compiler.release>
         <exec.mainClass>com.mycompany.library.Library</exec.mainClass>
     </properties>
+    <name>Mercie</name>
 </project>
