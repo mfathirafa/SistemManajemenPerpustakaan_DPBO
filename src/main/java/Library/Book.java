@@ -28,6 +28,6 @@ public class Book extends LibraryItem {
 
     @Override
     public String getItemDetails() {
-        return "Book: " + getTitle() + ", Author: " + getAuthor() + ", ISBN: " + isbn;
-    }
+        return "Book: " + getTitle() + ", Author: " + getAuthor() + ", ISBN: " + isbn;
+    }
 }
