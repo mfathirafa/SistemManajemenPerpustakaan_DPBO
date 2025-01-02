@@ -1,33 +1,40 @@
 package Library;
 
-public class Book extends LibraryItem {
+public class Book implements Lendable {
+    private String title;
+    private String author;
     private String isbn;
-    private int copiesAvailable;
+    private boolean isLent;
 
-    public Book(String title, String author, int publicationYear, String isbn, int copiesAvailable) {
-        super(title, author, publicationYear);
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
         this.isbn = isbn;
-        this.copiesAvailable = copiesAvailable;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public int getCopiesAvailable() {
-        return copiesAvailable;
-    }
-
-    public void setCopiesAvailable(int copiesAvailable) {
-        this.copiesAvailable = copiesAvailable;
+        this.isLent = false;
     }
 
     @Override
-    public String getItemDetails() {
-        return "Book: " + getTitle() + ", Author: " + getAuthor() + ", ISBN: " + isbn;
+    public void lend() {
+        if (isLent) {
+            System.out.println("Book is already lent out.");
+        } else {
+            isLent = true;
+            System.out.println("Book lent successfully.");
+        }
+    }
+
+    @Override
+    public void returnItem() {
+        if (!isLent) {
+            System.out.println("Book is not currently lent out.");
+        } else {
+            isLent = false;
+            System.out.println("Book returned successfully.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Book: " + title + ", Author: " + author + ", ISBN: " + isbn;
     }
 }

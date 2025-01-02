@@ -8,18 +8,42 @@ package Library;
  *
  * @author Pongo
  */
-public class Journal extends LibraryItem {
+public class Journal implements Lendable {
     private String volume;
     private String issue;
+    private boolean isLent;
 
-    public Journal(String title, String author, int publicationYear, String volume, String issue) {
-        super(title, author, publicationYear);
+    public Journal(String title, String author, String volume) {
         this.volume = volume;
         this.issue = issue;
+        this.isLent = false;
+    }
+    @Override
+    public void lend() {
+        if (isLent) {
+            System.out.println("DVD is already lent out.");
+        } else {
+            isLent = true;
+            System.out.println("DVD lent successfully.");
+        }
     }
 
     @Override
-    public String getItemDetails() {
+    public void returnItem() {
+        if (!isLent) {
+            System.out.println("DVD is not currently lent out.");
+        } else {
+            isLent = false;
+            System.out.println("DVD returned successfully.");
+        }
+    }
+
+    @Override
+    public String toString() {
         return "Journal: " + getTitle() + ", Volume: " + volume + ", Issue: " + issue;
+    }
+
+    private String getTitle() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

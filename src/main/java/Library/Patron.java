@@ -8,33 +8,25 @@ package Library;
  *
  * @author Lenovo
  */
-public class Patron {
-    private String patronId;
+class Patron {
     private String name;
+    private String id;
 
-    public Patron(String patronId, String name) {
-        this.patronId = patronId;
+    public Patron(String name, String id) {
         this.name = name;
-    }
-
-    public String getPatronId() {
-        return patronId;
-    }
-
-    public void setPatronId(String patronId) {
-        this.patronId = patronId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "Patron[ID=" + patronId + ", Name=" + name + "]";
+        return "Patron: " + name + ", ID: " + id;
+    }
+
+    String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    Object getPatronId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

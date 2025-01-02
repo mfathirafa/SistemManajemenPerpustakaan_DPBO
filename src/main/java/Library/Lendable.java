@@ -9,6 +9,6 @@ package Library;
  * @author ASUS
  */
 public interface Lendable {
-    boolean lend();
-    boolean returnItem();
+    void lend();
+    void returnItem();
 }

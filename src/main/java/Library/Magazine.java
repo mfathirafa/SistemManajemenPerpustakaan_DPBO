@@ -8,16 +8,39 @@ package Library;
  *
  * @author Lenovo
  */
-public class Magazine extends LibraryItem {
-    private String description;
+public class Magazine implements Lendable {
+    private String title;
+    private String issue;
+    private boolean isLent;
 
-    public Magazine(String title, String author, int publicationYear, String description) {
-        super(title, author, publicationYear);
-        this.description = description;
+    public Magazine(String title, String issue) {
+        this.title = title;
+        this.issue = issue;
+        this.isLent = false;
     }
 
     @Override
-    public String getItemDetails() {
-        return "Magazine: " + getTitle() + ", Description: " + description;
+    public void lend() {
+        if (isLent) {
+            System.out.println("Magazine is already lent out.");
+        } else {
+            isLent = true;
+            System.out.println("Magazine lent successfully.");
+        }
+    }
+
+    @Override
+    public void returnItem() {
+        if (!isLent) {
+            System.out.println("Magazine is not currently lent out.");
+        } else {
+            isLent = false;
+            System.out.println("Magazine returned successfully.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Magazine: " + title + ", Issue: " + issue;
     }
 }

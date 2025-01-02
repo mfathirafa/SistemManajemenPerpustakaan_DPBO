@@ -35,7 +35,7 @@ public class Library {
 
     public Patron findPatronById(String patronId) {
         for (Patron patron : patrons) {
-            if (patron.getPatronId().equalsIgnoreCase(patronId)) {
+            if (patron.getPatronId().equals(this)) {
                 return patron;
             }
         }
