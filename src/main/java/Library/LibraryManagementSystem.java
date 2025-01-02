@@ -244,10 +244,13 @@ public class LibraryManagementSystem {
     private void removeItem() {
         System.out.print("Enter item title to remove: ");
         String title = scanner.nextLine();
-        items.removeIf(item -> item.toString().contains(title));
-        System.out.println("Item removed if it existed.");
+        boolean removed = items.removeIf(item -> item.getTitle().equalsIgnoreCase(title));
+        if (removed) {
+            System.out.println("Item removed successfully.");
+        } else {
+            System.out.println("Item not found. No item removed.");
+        }
     }
-
     private void registerPatron() {
         System.out.print("Enter patron name: ");
         String name = scanner.nextLine();

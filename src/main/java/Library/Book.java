@@ -37,4 +37,14 @@ public class Book implements Lendable {
     public String toString() {
         return "Book: " + title + ", Author: " + author + ", ISBN: " + isbn;
     }
+
+    @Override
+    public String getTitle() {
+        return this.title; // Sesuaikan dengan atribut yang menyimpan judul di kelas tersebut
+    }
+
+    @Override
+    public Iterable<Review> getReviews() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -11,4 +11,8 @@ package Library;
 public interface Lendable {
     void lend();
     void returnItem();
+
+    public String getTitle();
+
+    public Iterable<Review> getReviews();
 }

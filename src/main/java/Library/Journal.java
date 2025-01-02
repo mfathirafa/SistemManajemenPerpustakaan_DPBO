@@ -9,11 +9,13 @@ package Library;
  * @author Pongo
  */
 public class Journal implements Lendable {
+    private String title;
     private String volume;
     private String issue;
     private boolean isLent;
 
     public Journal(String title, String author, String volume) {
+        this.title = title;
         this.volume = volume;
         this.issue = issue;
         this.isLent = false;
@@ -43,7 +45,13 @@ public class Journal implements Lendable {
         return "Journal: " + getTitle() + ", Volume: " + volume + ", Issue: " + issue;
     }
 
-    private String getTitle() {
+    @Override
+    public String getTitle() {
+        return this.title; // Sesuaikan dengan atribut yang menyimpan judul di kelas tersebut
+    }
+
+    @Override
+    public Iterable<Review> getReviews() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
